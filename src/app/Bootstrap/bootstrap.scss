@@ -1,0 +1,16 @@
+$theme-colors:(
+  'primary': #ff2a14,
+  'secondary' : yellow,
+  'danger': #C0C0C0,
+  'dark': black,
+  'grass': green,
+  'orange': orange
+);
+$font-family-sans-serif: #000;
+$spinner-border-width: 2px;
+$border-radius: 5px;
+$card-bg: #ffff;
+$body-bg: #f0f0f0;
+
+
+@import "node_modules/bootstrap/scss/bootstrap";

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="text-center">
+    <h1>{{name}}</h1>
+  </div>
+
+  <p [innerHTML]="description"></p>
+  <div class="d-flex flex-row flex-wrap container">
+    <div class="card my-3 mx-3" style="width: 18rem;" *ngFor="let product of productArr">
+      <img class="card-img-top" [src]="'http://kodytek.cz:8080/rest-api/' + product.images[0].miniaturePath" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{product.title}}</h5>
+        <h3>{{ratingNumber}}</h3>
+        <div class="info">
+        <p class="card-text">{{product.price / 100}} Kč,-</p>
+        <a class="btn btn-outline-dark" (click)="getProduct(product.id)">Více o produktu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-canter">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination pg-blue">
+        <li class="page-item text-dark" *ngFor="let i of pageCount"><a class="page-link" (click)="loadPage(categoryId, i)">{{i + 1}}</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class=" container" *ngIf="productArr.length === 0">
+    <h3>Out of stock</h3>
+  </div>
+</div>
