@@ -1,7 +1,20 @@
-<div
-  *ngFor="let i of arr ">
-  <a> {{i.title}}</a>
+<div class="container">
+  <h1>Váše položky</h1>
 </div>
-<p>Kosiiiik</p>
+<div class="d-flex flex-row flex-wrap container">
+  <div class="card my-3 mx-3" style="width: 18rem;" *ngFor="let i of arr">
+    <img class="card-img-top" [src]="'http://kodytek.cz:8080/rest-api/' + i.images[0].miniaturePath" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{i.title}}</h5>
+      <p>{{i.price / 100}} Kaček bráško :)</p>
 
+      <div class="button-box col-lg-12" style="text-align: center;">
+        <a class="btn btn-primary" (click)="deleteProduct(i.id)">Smazat</a>
+        <a class="btn btn-orange" (click)="getProduct(i.id)">Zobrazit</a>
 
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h2 style="float: right"><strong>Celkem k zaplacení : </strong>{{finalPrice / 100}} Kč</h2>
